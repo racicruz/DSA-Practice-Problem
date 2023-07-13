@@ -21,44 +21,32 @@ The body of the text is given as an array of strings where each string represent
 
 ```
 const data = [
-  "All human beings are born free and equal in dignity and rights.",
-  "They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.",
-  "Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.",
-  "Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty.",
+  "He has obstructed the Administration of Justice, by refusing his Assent to Laws for establishing Judiciary powers.",
+  "He has made Judges dependent on his Will alone, for the tenure of their offices, and the amount and payment of their salaries.",
+  "He has erected a multitude of New Offices, and sent hither swarms of Officers to harrass our people, and eat out their substance.",
+  "He has kept among us, in times of peace, Standing Armies without the Consent of our legislatures.",
+  "He has affected to render the Military independent of and superior to the Civil power.",
   ...
   ]
-  ```
-  
-As you can see from this snippet the word "human" appears on line 0 and the word "distinction" appears on lines 2 and 3.
+```
+As you can see from this snippet the word "justice" appears on line 0 and the word "he" appears in all of them.
 
 An index generated from this text may look like this:
 
 ```
 {
-        all: [
-           0,  2,  5,  8, 9,
-          13, 44, 48, 50
-        ],
-        human: [ 0, 39, 49 ],
-        beings: [ 0 ],
-        are: [
-           0,  1,  8, 9,
-          24, 43, 56
-        ],
-        born: [ 0, 44 ],
-        free: [
-           0, 25, 35, 36,
-          37, 46, 55
-        ],
-        and: [
-           0,  1,  2,  4,  5,  8,  9, 12, 15, 17,
-          18, 19, 20, 23, 24, 25, 26, 29, 30, 31,
-          35, 36, 37, 39, 40, 41, 42, 43, 46, 48,
-          49, 50, 52, 53, 54, 55, 56, 57, 58
-        ],
-        equal: [
-           0,  8,  9, 24,
-          34, 35, 38
+        right: [ 4, 5, 6, 12, 45, 47 ],
+        alter: [ 4, 7 ],
+        or: [ 4, 35 ],
+        abolish: [ 4 ],
+        institute: [ 4 ],
+        new: [ 4, 6, 16, 19 ],
+        laying: [ 4 ],
+        its: [ 4, 29 ],
+        foundation: [ 4 ],
+        on: [
+          4, 14, 18, 24,
+          26, 35, 36, 48
         ],
    ...
 }
@@ -76,17 +64,18 @@ You may find that you need to break up a long piece of text into individual word
 `/[\s.,';]/`
 
 For example, the following snippet of code:
-`"Everyone has the right to life, liberty and security of person.".split(/[\s.,';]/)`
+`"For depriving us in many cases, of the benefits of Trial by Jury.".split(/[\s.,';]/)`
 splits the given text into individual words by spaces, full stops, commas, single quotes and semi-colons. The result is an array:
 
 ```
 [
-  'Everyone', 'has',
-  'the',      'right',
-  'to',       'life',
-  '',         'liberty',
-  'and',      'security',
-  'of',       'person',
+  'For',  'depriving',
+  'us',   'in',       
+  'many', 'cases',    
+  '',     'of',       
+  'the',  'benefits', 
+  'of',   'Trial',    
+  'by',   'Jury',     
   ''
 ]
 ```
@@ -107,18 +96,18 @@ Generate an array of strings representing the lines of text in which any of the 
 For example, given the following index:
 ```
 {
-    exile: [ 11 ],
-    full: [ 12, 23, 25, 49, 55 ],
-    equality: [ 12 ],
-    fair: [ 12 ]
+    human: [ 1 ],
+    object [ 6, 8 ],
+    history: [ 8 ],
 }
 ```
-and the words "exile", "equality" and "fair" and text given in the src/data.js file, construct the resulting array as follows:
+and the words "human", "object" and "history" and text given in the src/data.js file, construct the resulting array as follows:
 
-The word "exile" occurs on line 11 and both words "equality" and "fair" appear on line 12 so return the lines 11 and 12. The result will be:
+The word "human" occurs on line 1, the word "object" occurs on line 6, and both words "object" and "history" appear on line 8 so return the lines 1, 6, and 8. The result will be:
 ```
 [
-  "No one shall be subjected to arbitrary arrest, detention or exile.",
-  "Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him."
+  "When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Natures God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.",
+  "But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.",
+  "The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States."
 ]
 ```
