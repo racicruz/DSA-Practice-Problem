@@ -1,4 +1,3 @@
-# DSA Interview
 ## Instructions
 A word index is like a book's index, but instead of page numbers, it associates words with their occurrences in the text. It helps quickly locate specific words and their positions, aiding tasks such as information retrieval and search algorithms.
 
